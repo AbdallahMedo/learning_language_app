@@ -4,30 +4,23 @@ import '../models/colors_model.dart';
 class ColorsItem extends StatefulWidget {
   final ColorsModel colors;
 
-
-
-  ColorsItem({required this.colors,} );
+  const ColorsItem({
+    super.key,
+    required this.colors,
+  });
 
   @override
   State<ColorsItem> createState() => _FamilyItemState();
 }
 
 class _FamilyItemState extends State<ColorsItem> {
-
-  bool isPlaying=false;
-  void toggleIcone()
-  {
+  bool isPlaying = false;
+  void toggleIcone() {
     setState(() {
-
-
-      if( isPlaying=!isPlaying)
-      {
+      if (isPlaying = !isPlaying) {
         widget.colors.playSound();
-
-      }else
-      {
+      } else {
         widget.colors.stopSound();
-
       }
     });
   }
@@ -36,11 +29,11 @@ class _FamilyItemState extends State<ColorsItem> {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      color: Color(0xffBC7C7C),
+      color: const Color(0xffBC7C7C),
       child: Row(
         children: [
           Container(
-            color: Color(0xffFFF4DB),
+            color: const Color(0xffFFF4DB),
             child: Image.asset(widget.colors.image),
           ),
           Padding(
@@ -76,8 +69,7 @@ class _FamilyItemState extends State<ColorsItem> {
                 //widget.numbers.playSound();
               },
               icon: Icon(
-                isPlaying ? Icons.stop :
-                Icons.play_arrow,
+                isPlaying ? Icons.stop : Icons.play_arrow,
                 color: Colors.white,
                 size: 30,
               ),
@@ -88,4 +80,3 @@ class _FamilyItemState extends State<ColorsItem> {
     );
   }
 }
-

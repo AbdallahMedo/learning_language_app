@@ -1,5 +1,4 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:learning_language_app/component/item_container.dart';
 
 class Numbers {
   final String sound;
@@ -7,26 +6,20 @@ class Numbers {
   final String jpName;
   final String enName;
 
-
-
   Numbers({
     required this.sound,
     required this.image,
     required this.jpName,
     required this.enName,
-
   });
 
-
-   playSound()async
-   {
-  final player=AudioPlayer();
+  playSound() async {
+    final player = AudioPlayer();
     player.play(AssetSource(sound));
   }
 
-  stopSound()
-  {
-    final player=AudioPlayer();
+  stopSound() {
+    final player = AudioPlayer();
     player.stop();
   }
 }

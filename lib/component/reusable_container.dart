@@ -7,28 +7,28 @@ class ReusableContainer extends StatelessWidget {
   final TextStyle style;
   final VoidCallback onTap;
 
- const ReusableContainer(
-  {
+  const ReusableContainer({
+    super.key,
     required this.text,
     required this.color,
     required this.style,
     required this.onTap,
-
-});
-
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: color,),
-        padding:const EdgeInsets.only(left: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: color,
+        ),
+        padding: const EdgeInsets.only(left: 20),
         alignment: Alignment.centerLeft,
         height: 50,
         width: double.infinity,
-
-        child:  Text(
+        child: Text(
           text,
           style: style,
         ),

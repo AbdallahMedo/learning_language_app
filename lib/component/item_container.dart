@@ -4,30 +4,23 @@ import 'package:learning_language_app/models/numbers_model.dart';
 class NumbersItem extends StatefulWidget {
   final Numbers numbers;
 
-
-
-  NumbersItem({required this.numbers,} );
+  const NumbersItem({
+    super.key,
+    required this.numbers,
+  });
 
   @override
   State<NumbersItem> createState() => _NumbersItemState();
 }
 
 class _NumbersItemState extends State<NumbersItem> {
-
-  bool isPlaying=false;
-  void toggleIcone()
-  {
+  bool isPlaying = false;
+  void toggleIcone() {
     setState(() {
-
-
-      if( isPlaying=!isPlaying)
-      {
+      if (isPlaying = !isPlaying) {
         widget.numbers.playSound();
-
-      }else
-      {
+      } else {
         widget.numbers.stopSound();
-
       }
     });
   }
@@ -36,11 +29,11 @@ class _NumbersItemState extends State<NumbersItem> {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      color: Color(0xffFFD09B),
+      color: const Color(0xffFFD09B),
       child: Row(
         children: [
           Container(
-            color: Color(0xffFFF4DB),
+            color: const Color(0xffFFF4DB),
             child: Image.asset(widget.numbers.image),
           ),
           Padding(
@@ -72,12 +65,11 @@ class _NumbersItemState extends State<NumbersItem> {
             padding: const EdgeInsets.only(right: 16.0),
             child: IconButton(
               onPressed: () {
-                 toggleIcone();
-                 //widget.numbers.playSound();
+                toggleIcone();
+                //widget.numbers.playSound();
               },
               icon: Icon(
-                isPlaying ? Icons.stop :
-                Icons.play_arrow,
+                isPlaying ? Icons.stop : Icons.play_arrow,
                 color: Colors.white,
                 size: 30,
               ),
@@ -88,4 +80,3 @@ class _NumbersItemState extends State<NumbersItem> {
     );
   }
 }
-

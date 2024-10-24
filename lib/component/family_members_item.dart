@@ -4,30 +4,23 @@ import 'package:learning_language_app/models/family_members_model.dart';
 class FamilyItem extends StatefulWidget {
   final Members members;
 
-
-
-  FamilyItem({required this.members,} );
+  const FamilyItem({
+    super.key,
+    required this.members,
+  });
 
   @override
   State<FamilyItem> createState() => _FamilyItemState();
 }
 
 class _FamilyItemState extends State<FamilyItem> {
-
-  bool isPlaying=false;
-  void toggleIcone()
-  {
+  bool isPlaying = false;
+  void toggleIcone() {
     setState(() {
-
-
-      if( isPlaying=!isPlaying)
-      {
+      if (isPlaying = !isPlaying) {
         widget.members.playSound();
-
-      }else
-      {
+      } else {
         widget.members.stopSound();
-
       }
     });
   }
@@ -36,11 +29,11 @@ class _FamilyItemState extends State<FamilyItem> {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      color: Color(0xffB9E59A),
+      color: const Color(0xffB9E59A),
       child: Row(
         children: [
           Container(
-            color: Color(0xffFFF4DB),
+            color: const Color(0xffFFF4DB),
             child: Image.asset(widget.members.image),
           ),
           Padding(
@@ -76,8 +69,7 @@ class _FamilyItemState extends State<FamilyItem> {
                 //widget.numbers.playSound();
               },
               icon: Icon(
-                isPlaying ? Icons.stop :
-                Icons.play_arrow,
+                isPlaying ? Icons.stop : Icons.play_arrow,
                 color: Colors.white,
                 size: 30,
               ),
@@ -88,4 +80,3 @@ class _FamilyItemState extends State<FamilyItem> {
     );
   }
 }
-

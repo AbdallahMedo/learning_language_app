@@ -1,35 +1,27 @@
 import 'package:flutter/material.dart';
 import '../models/phrases_model.dart';
+
 class PhrasesItem extends StatefulWidget {
   final PhrasesModel phrase;
 
-
-  PhrasesItem({required this.phrase});
-
-
+  const PhrasesItem({super.key, required this.phrase});
 
   @override
   State<PhrasesItem> createState() => _PhrasesItemState();
 }
 
 class _PhrasesItemState extends State<PhrasesItem> {
-  bool isPlaying=false;
-  void toggleIcone()
-  {
+  bool isPlaying = false;
+  void toggleIcone() {
     setState(() {
-
-
-      if( isPlaying=!isPlaying)
-      {
+      if (isPlaying = !isPlaying) {
         widget.phrase.playSound();
-
-      }else
-      {
+      } else {
         widget.phrase.stopSound();
-
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,14 +36,14 @@ class _PhrasesItemState extends State<PhrasesItem> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                     Text(
+                    Text(
                       widget.phrase.speech,
-                      style:const TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 17,
                       ),
                     ),
-                     Text(
+                    Text(
                       widget.phrase.desc,
                       style: const TextStyle(
                         color: Colors.white,
@@ -61,14 +53,15 @@ class _PhrasesItemState extends State<PhrasesItem> {
                   ],
                 ),
               ),
-             const Spacer(
+              const Spacer(
                 flex: 1,
               ),
               IconButton(
-                  onPressed: () {toggleIcone();},
+                onPressed: () {
+                  toggleIcone();
+                },
                 icon: Icon(
-                  isPlaying ? Icons.stop :
-                  Icons.play_arrow,
+                  isPlaying ? Icons.stop : Icons.play_arrow,
                   color: Colors.white,
                   size: 30,
                 ),
